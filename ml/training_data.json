@@ -1,0 +1,40 @@
+{
+  "intents": [
+    {
+      "tag": "open_youtube",
+      "patterns": [
+        "open youtube",
+        "launch youtube",
+        "start youtube",
+        "play youtube"
+      ]
+    },
+    {
+      "tag": "open_google",
+      "patterns": [
+        "open google",
+        "launch google",
+        "start google",
+        "search google"
+      ]
+    },
+    {
+      "tag": "greeting",
+      "patterns": [
+        "hello",
+        "hi",
+        "hey",
+        "good morning"
+      ]
+    },
+    {
+      "tag": "exit",
+      "patterns": [
+        "stop",
+        "exit",
+        "quit",
+        "bye"
+      ]
+    }
+  ]
+}
