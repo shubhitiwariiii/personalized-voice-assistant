@@ -14,40 +14,48 @@ A Python-based intelligent voice assistant that can listen to voice commands, un
 
 ## 🏗 Project Architecture
 
-voice-assistant
+```
+voice-assistant/
 │
 ├── main.py
-├── assistant
-│   ├── speech_to_text.py
-│   └── text_to_speech.py
 │
-├── commands
-│   ├── open_apps.py
-│   └── play_music.py
+├── assistant/
+│   ├── speech_to_text.py      # Converts user speech → text
+│   └── text_to_speech.py      # Converts text → speech response
 │
-├── ml
-│   ├── intent_classifier.py
-│   └── training_data.json
+├── commands/
+│   ├── open_apps.py           # Opens websites like YouTube, Google
+│   └── play_music.py          # Plays music from local system
 │
-├── utils
-│   └── helpers.py
+├── ml/
+│   ├── intent_classifier.py   # Machine Learning model for intent detection
+│   └── training_data.json     # Training dataset for intents
 │
-├── requirements.txt
-└── README.md
+├── utils/
+│   └── helpers.py             # Helper utility functions
+│
+├── requirements.txt           # Python dependencies
+└── README.md                  # Project documentation
+```
+
+---
 
 ## 🧠 How It Works
 
+```
 User Speech
-↓
+     ↓
 Speech Recognition
-↓
+     ↓
 Text Command
-↓
+     ↓
 Machine Learning Intent Classifier
-↓
+     ↓
 Command Execution
-↓
+     ↓
 Voice Response
+```
+
 
 ## 🛠 Tech Stack
 
