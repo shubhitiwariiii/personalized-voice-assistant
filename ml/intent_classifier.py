@@ -25,6 +25,13 @@ class IntentClassifier:
 
     def predict(self, text):
         X = self.vectorizer.transform([text])
+
+        probabilities = self.model.predict_proba(X)[0]
+        max_prob = max(probabilities)
+
+        if max_prob < 0.6:
+            return "unknown"
+
         return self.model.predict(X)[0]
     
 if __name__ == "__main__":

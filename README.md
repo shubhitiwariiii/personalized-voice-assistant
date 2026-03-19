@@ -1,205 +1,208 @@
-# 🎙 Personalized Voice Assistant (Alexa-like AI)
+# 🎙 Personalized Voice Assistant (AI Powered)
 
-A Python-based intelligent voice assistant that can listen to voice commands, understand user intent using machine learning, and perform tasks such as opening websites, playing music, and responding with speech.
+A Python-based intelligent voice assistant inspired by Alexa, capable of understanding voice commands, detecting wake words, and responding using Machine Learning and a local AI model (LLaMA3 via Ollama).
+
+---
 
 ## 🚀 Features
 
 * 🎤 Speech Recognition (Speech → Text)
-* 🗣 Text to Speech responses
+* 🗣 Text-to-Speech (Voice Output)
 * 🧠 Machine Learning Intent Classification
-* 🌐 Open websites like YouTube and Google
+* 🎯 Wake Word Detection (e.g., "Hey Assistant")
+* 🤖 AI-powered responses using **Ollama (LLaMA3)**
+* 🌐 Open websites (YouTube, Google)
 * 🎵 Play music from local system
-* 🧩 Modular project architecture
-* ⚡ Fast NLP using Naive Bayes and Scikit-learn
+* ⚡ Optimized response time
+* 🧩 Modular architecture
 
-## 🏗 Project Architecture
+---
 
-```
+## 🛠 Tech Stack
+
+### 👨‍💻 Programming Language
+
+* Python
+
+### 🧠 Machine Learning & NLP
+
+* Scikit-learn (Naive Bayes, CountVectorizer)
+* Natural Language Processing (Intent Classification)
+
+### 🎤 Speech Processing
+
+* SpeechRecognition
+* Pyttsx3
+* PyAudio
+
+### 🤖 AI / LLM
+
+* Ollama (Local AI Runtime)
+* LLaMA3 Model
+
+### 🌐 System & Utilities
+
+* Requests
+* Webbrowser
+* OS Module
+
+### ⚙ Development Tools
+
+* VS Code
+* Git & GitHub
+
+### 🧩 Architecture Style
+
+* Modular Architecture
+* Event-driven System (Wake Word Activation)
+* Hybrid AI System (ML + LLM)
+
+---
+
+## 📂 Project Architecture
+
 voice-assistant/
 │
 ├── main.py
 │
 ├── assistant/
-│   ├── speech_to_text.py      # Converts user speech → text
-│   └── text_to_speech.py      # Converts text → speech response
+│   ├── speech_to_text.py
+│   ├── text_to_speech.py
+│   ├── wake_word.py
+│   └── chatgpt.py
 │
 ├── commands/
-│   ├── open_apps.py           # Opens websites like YouTube, Google
-│   └── play_music.py          # Plays music from local system
+│   ├── open_apps.py
+│   └── play_music.py
 │
 ├── ml/
-│   ├── intent_classifier.py   # Machine Learning model for intent detection
-│   └── training_data.json     # Training dataset for intents
+│   ├── intent_classifier.py
+│   └── training_data.json
 │
 ├── utils/
-│   └── helpers.py             # Helper utility functions
+│   └── helpers.py
 │
-├── requirements.txt           # Python dependencies
-└── README.md                  # Project documentation
-```
+├── requirements.txt
+└── README.md
 
 ---
 
-## 🧠 How It Works
+## 🧠 System Architecture
 
-```
-User Speech
-     ↓
+Microphone Input
+↓
+Wake Word Detection
+↓
 Speech Recognition
-     ↓
-Text Command
-     ↓
-Machine Learning Intent Classifier
-     ↓
-Command Execution
-     ↓
-Voice Response
-```
+↓
+Intent Classifier (ML)
+↓
 
-### 🧩 System Architecture
-The assistant follows a modular pipeline-based architecture:
+If Known Intent → Execute Command
+If Unknown → Local AI (LLaMA3 via Ollama)
 
-```id="3n6e8b"
-[ Microphone Input ]
-          ↓
-[ Speech Recognition Module ]
-          ↓
-[ Text Processing ]
-          ↓
-[ Machine Learning Intent Classifier ]
-          ↓
-[ Command Execution Layer ]
-          ↓
-[ Text-to-Speech Engine ]
-          ↓
-[ Audio Output ]
-```
+↓
+Text-to-Speech Output
 
-### Explanation
+---
 
-* **Speech Recognition Module**
-  Captures audio input and converts it into text using SpeechRecognition.
+## 🤖 Machine Learning Model
 
-* **Intent Classifier (ML Model)**
-  Uses Natural Language Processing to predict user intent from text.
+* Algorithm: Multinomial Naive Bayes
+* Vectorization: Bag of Words (CountVectorizer)
 
-* **Command Execution Layer**
-  Maps predicted intent to specific functions like opening apps or playing music.
+### Pipeline:
 
-* **Text-to-Speech Engine**
-  Converts response text into audible speech using pyttsx3.
+1. Convert text → numerical vectors
+2. Train model on intents
+3. Predict user intent
+4. Execute command or call AI
 
-  ```
+---
 
-### 🤖 Machine Learning Model
-The assistant uses a **Natural Language Processing (NLP)** pipeline for intent classification.
+## 🤖 AI Integration (Offline)
 
-### Model Used
+* Model: LLaMA3
+* Runtime: Ollama
+* Works completely offline
 
-* Multinomial Naive Bayes (from Scikit-learn)
+### Advantages:
 
-### Steps Involved
+* No API cost
+* Faster response
+* Privacy-friendly
 
-1. **Data Collection**
-
-   * Defined intents and example phrases in `training_data.json`
-
-2. **Text Vectorization**
-
-   * Used `CountVectorizer` to convert text into numerical vectors (Bag of Words)
-
-3. **Model Training**
-
-   * Trained Naive Bayes model on patterns and tags
-
-4. **Prediction**
-
-   * Converts user input into vector form and predicts the most probable intent
-
-### Example
-
-Input:
-
-```id="9ldydr"
-"can you open youtube"
-```
-
-Output:
-
-```id="c9jz78"
-Intent → open_youtube
-```
-
-### Why Naive Bayes?
-
-* Fast and efficient
-* Works well for text classification
-* Lightweight (good for real-time applications)
-
-
-
-## 🛠 Tech Stack
-
-* Python
-* SpeechRecognition
-* Pyttsx3
-* Scikit-learn
-* PyAudio
-* JSON
+---
 
 ## ⚙ Installation
 
-Clone the repository
+### 1. Clone Repository
 
-git clone https://github.com/YOUR_USERNAME/voice-assistant.git
+git clone https://github.com/shubhitiwariiii/PERSONALIZED-VOICE-ASSISTANT.git
+cd personalized-voice-assistant
 
-Navigate to the project folder
-
-cd voice-assistant
-
-Create virtual environment
+### 2. Create Virtual Environment
 
 python -m venv venv
-
-Activate environment
-
-Windows
 venv\Scripts\activate
 
-Install dependencies
+### 3. Install Dependencies
 
 pip install -r requirements.txt
 
-Run the assistant
+### 4. Install Ollama
+
+Download from: https://ollama.com/download
+
+Run model:
+ollama run llama3
+
+### 5. Run Project
 
 python main.py
 
+---
+
 ## 🎯 Example Commands
 
-hello
-open youtube
-open google
-play music
-exit
+* "Hey assistant"
+* "Open YouTube"
+* "Play music"
+* "What is artificial intelligence?"
+* "Exit"
+
+---
+
+## ⚡ Key Highlights
+
+* Event-driven wake word system
+* ML + AI hybrid architecture
+* Offline AI assistant using Ollama
+* Optimized speech pipeline
+* Clean modular code structure
+
+---
 
 ## 📚 Future Improvements
 
-This project can be extended with advanced features:
+* 🧠 Memory system (personalization)
+* 🌦 Weather API integration
+* 📱 GUI interface
+* 🔐 Face recognition login
+* 🔊 Offline speech recognition
 
-* 🎤 Wake Word Detection ("Hey Assistant")
-* 🌦 Weather API Integration
-* 🧠 Context-aware Conversations
-* 🤖 ChatGPT / LLM Integration
-* 📱 GUI Interface (Tkinter / Web App)
-* 🔐 Face Recognition Authentication
-* 🔊 Offline Voice Models (Vosk)
-
-These improvements can transform the assistant into a **production-level AI system**.
-
+---
 
 ## 👩‍💻 Author
 
-Shubhi Tiwari
-B.Tech Computer Science Student
+**Shubhi Tiwari**
+B.Tech Computer Science
 
-GitHub: https://github.com/shubhitiwariiii
+🔗 GitHub: https://github.com/shubhitiwariiii
+
+---
+
+## ⭐ Project Status
+
+🚀 Actively improving with advanced AI features
+

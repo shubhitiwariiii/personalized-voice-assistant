@@ -19,22 +19,26 @@
       ]
     },
     {
-      "tag": "greeting",
-      "patterns": [
-        "hello",
-        "hi",
-        "hey",
-        "good morning"
-      ]
-    },
+    "tag": "greeting",
+    "patterns": [
+      "hello",
+      "hi",
+      "hey",
+      "good morning",
+      "good evening",
+      "how are you"
+    ]
+  },
     {
-      "tag": "exit",
-      "patterns": [
-        "stop",
-        "exit",
-        "quit",
-        "bye"
-      ]
-    }
+    "tag": "exit",
+    "patterns": [
+      "stop",
+      "exit",
+      "quit",
+      "bye",
+      "goodbye",
+      "see you later"
+    ]
+  }
   ]
 }

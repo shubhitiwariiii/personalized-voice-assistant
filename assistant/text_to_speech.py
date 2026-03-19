@@ -1,7 +1,15 @@
 import pyttsx3
-
-engine = pyttsx3.init()
+import time
 
 def speak(text):
-    engine.say(text)
-    engine.runAndWait()
+    try:
+        engine = pyttsx3.init('sapi5')
+        engine.setProperty('rate', 170)
+
+        engine.say(text)
+        engine.runAndWait()
+
+        time.sleep(0.5)   # small buffer
+
+    except Exception as e:
+        print("Speech Error:", e)
