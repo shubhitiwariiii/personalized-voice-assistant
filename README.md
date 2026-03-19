@@ -55,7 +55,8 @@ Command Execution
      ↓
 Voice Response
 ```
-🧩 System Architecture
+
+### 🧩 System Architecture
 The assistant follows a modular pipeline-based architecture:
 
 ```id="3n6e8b"
@@ -87,6 +88,54 @@ The assistant follows a modular pipeline-based architecture:
 
 * **Text-to-Speech Engine**
   Converts response text into audible speech using pyttsx3.
+
+  ```
+
+### 🤖 Machine Learning Model
+The assistant uses a **Natural Language Processing (NLP)** pipeline for intent classification.
+
+### Model Used
+
+* Multinomial Naive Bayes (from Scikit-learn)
+
+### Steps Involved
+
+1. **Data Collection**
+
+   * Defined intents and example phrases in `training_data.json`
+
+2. **Text Vectorization**
+
+   * Used `CountVectorizer` to convert text into numerical vectors (Bag of Words)
+
+3. **Model Training**
+
+   * Trained Naive Bayes model on patterns and tags
+
+4. **Prediction**
+
+   * Converts user input into vector form and predicts the most probable intent
+
+### Example
+
+Input:
+
+```id="9ldydr"
+"can you open youtube"
+```
+
+Output:
+
+```id="c9jz78"
+Intent → open_youtube
+```
+
+### Why Naive Bayes?
+
+* Fast and efficient
+* Works well for text classification
+* Lightweight (good for real-time applications)
+
 
 
 ## 🛠 Tech Stack
@@ -135,11 +184,18 @@ exit
 
 ## 📚 Future Improvements
 
-* Wake word detection ("Hey Assistant")
-* Weather API integration
-* Smart home automation
-* ChatGPT integration
-* Context-aware conversation
+This project can be extended with advanced features:
+
+* 🎤 Wake Word Detection ("Hey Assistant")
+* 🌦 Weather API Integration
+* 🧠 Context-aware Conversations
+* 🤖 ChatGPT / LLM Integration
+* 📱 GUI Interface (Tkinter / Web App)
+* 🔐 Face Recognition Authentication
+* 🔊 Offline Voice Models (Vosk)
+
+These improvements can transform the assistant into a **production-level AI system**.
+
 
 ## 👩‍💻 Author
 
