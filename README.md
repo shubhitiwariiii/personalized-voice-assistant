@@ -88,7 +88,6 @@ The assistant follows a modular pipeline-based architecture:
 
 * **Text-to-Speech Engine**
   Converts response text into audible speech using pyttsx3.
-
   ```
 
 ### 🤖 Machine Learning Model
