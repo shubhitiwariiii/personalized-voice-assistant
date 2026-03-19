@@ -61,48 +61,52 @@ A Python-based intelligent voice assistant inspired by Alexa, capable of underst
 
 ## 📂 Project Architecture
 
+```bash
 voice-assistant/
 │
 ├── main.py
 │
 ├── assistant/
-│   ├── speech_to_text.py
-│   ├── text_to_speech.py
-│   ├── wake_word.py
-│   └── chatgpt.py
+│   ├── speech_to_text.py      # Speech → Text
+│   ├── text_to_speech.py      # Text → Speech
+│   ├── wake_word.py           # Wake word detection
+│   └── chatgpt.py             # AI (Ollama integration)
 │
 ├── commands/
-│   ├── open_apps.py
-│   └── play_music.py
+│   ├── open_apps.py           # Open websites
+│   └── play_music.py          # Play local music
 │
 ├── ml/
-│   ├── intent_classifier.py
-│   └── training_data.json
+│   ├── intent_classifier.py   # ML model
+│   └── training_data.json     # Training dataset
 │
 ├── utils/
-│   └── helpers.py
+│   └── helpers.py             # Utility functions
 │
 ├── requirements.txt
 └── README.md
-
----
-
+```
 ## 🧠 System Architecture
 
+```text
 Microphone Input
-↓
+        ↓
 Wake Word Detection
-↓
+        ↓
 Speech Recognition
-↓
+        ↓
 Intent Classifier (ML)
-↓
-
-If Known Intent → Execute Command
-If Unknown → Local AI (LLaMA3 via Ollama)
-
-↓
+        ↓
+ ┌─────────────────────────────┐
+ │ Known Intent                │ → Execute Command
+ └─────────────────────────────┘
+        ↓
+ ┌─────────────────────────────┐
+ │ Unknown Input               │ → Local AI (LLaMA3 via Ollama)
+ └─────────────────────────────┘
+        ↓
 Text-to-Speech Output
+```
 
 ---
 
