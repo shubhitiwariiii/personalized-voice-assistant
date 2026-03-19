@@ -55,6 +55,38 @@ Command Execution
      ↓
 Voice Response
 ```
+🧩 System Architecture
+The assistant follows a modular pipeline-based architecture:
+
+```id="3n6e8b"
+[ Microphone Input ]
+          ↓
+[ Speech Recognition Module ]
+          ↓
+[ Text Processing ]
+          ↓
+[ Machine Learning Intent Classifier ]
+          ↓
+[ Command Execution Layer ]
+          ↓
+[ Text-to-Speech Engine ]
+          ↓
+[ Audio Output ]
+```
+
+### Explanation
+
+* **Speech Recognition Module**
+  Captures audio input and converts it into text using SpeechRecognition.
+
+* **Intent Classifier (ML Model)**
+  Uses Natural Language Processing to predict user intent from text.
+
+* **Command Execution Layer**
+  Maps predicted intent to specific functions like opening apps or playing music.
+
+* **Text-to-Speech Engine**
+  Converts response text into audible speech using pyttsx3.
 
 
 ## 🛠 Tech Stack
