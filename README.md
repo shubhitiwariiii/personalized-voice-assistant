@@ -1,6 +1,6 @@
-# 🎙 Personalized Voice Assistant (AI Powered)
+# 🎙 AI-Powered Personalized Voice Assistant
 
-A Python-based intelligent voice assistant inspired by Alexa, capable of understanding voice commands, detecting wake words, and responding using Machine Learning and a local AI model (LLaMA3 via Ollama).
+A Python-based intelligent voice assistant inspired by Alexa, capable of understanding voice commands, detecting intents using Machine Learning, and generating responses using a local AI model (LLaMA3 via Ollama). The assistant includes a GUI interface and supports personalized interactions.
 
 ---
 
@@ -8,133 +8,121 @@ A Python-based intelligent voice assistant inspired by Alexa, capable of underst
 
 * 🎤 Speech Recognition (Speech → Text)
 * 🗣 Text-to-Speech (Voice Output)
-* 🧠 Machine Learning Intent Classification
-* 🎯 Wake Word Detection (e.g., "Hey Assistant")
-* 🤖 AI-powered responses using **Ollama (LLaMA3)**
-* 🌐 Open websites (YouTube, Google)
-* 🎵 Play music from local system
-* ⚡ Optimized response time
-* 🧩 Modular architecture
+* 🧠 ML-based Intent Classification (Naive Bayes)
+* 🎯 Dynamic Command Execution System
+* 🤖 AI Responses using Local LLM (LLaMA3 via Ollama)
+* 🧩 Memory System (JSON-based personalization)
+* 🖥 GUI Interface (Tkinter)
+* ⚡ Multithreading for smooth UI
+* 🎨 Dark-themed UI with chat-style interaction
 
 ---
 
 ## 🛠 Tech Stack
 
-### 👨‍💻 Programming Language
-
-* Python
-
-### 🧠 Machine Learning & NLP
-
-* Scikit-learn (Naive Bayes, CountVectorizer)
-* Natural Language Processing (Intent Classification)
-
-### 🎤 Speech Processing
-
-* SpeechRecognition
-* Pyttsx3
-* PyAudio
-
-### 🤖 AI / LLM
-
-* Ollama (Local AI Runtime)
-* LLaMA3 Model
-
-### 🌐 System & Utilities
-
-* Requests
-* Webbrowser
-* OS Module
-
-### ⚙ Development Tools
-
-* VS Code
-* Git & GitHub
-
-### 🧩 Architecture Style
-
-* Modular Architecture
-* Event-driven System (Wake Word Activation)
-* Hybrid AI System (ML + LLM)
+* **Language:** Python
+* **Machine Learning:** Scikit-learn (Naive Bayes, CountVectorizer)
+* **Speech Processing:** SpeechRecognition, Pyttsx3
+* **AI Model:** Ollama (LLaMA3)
+* **GUI:** Tkinter
+* **Storage:** JSON (memory system)
+* **Other:** Threading, Requests
 
 ---
 
-## 📂 Project Architecture
+## 📂 Project Structure
 
 ```bash
 voice-assistant/
 │
 ├── main.py
+├── gui.py
 │
 ├── assistant/
-│   ├── speech_to_text.py      # Speech → Text
-│   ├── text_to_speech.py      # Text → Speech
-│   ├── wake_word.py           # Wake word detection
-│   └── chatgpt.py             # AI (Ollama integration)
+│   ├── speech_to_text.py
+│   ├── text_to_speech.py
+│   ├── wake_word.py
+│   └── chatgpt.py
 │
 ├── commands/
-│   ├── open_apps.py           # Open websites
-│   └── play_music.py          # Play local music
+│   ├── open_apps.py
+│   └── play_music.py
 │
 ├── ml/
-│   ├── intent_classifier.py   # ML model
-│   └── training_data.json     # Training dataset
+│   ├── intent_classifier.py
+│   └── training_data.json
 │
 ├── utils/
-│   └── helpers.py             # Utility functions
+│   ├── memory.py
+│   └── memory.json
 │
 ├── requirements.txt
 └── README.md
 ```
+
+---
+
 ## 🧠 System Architecture
 
-```text
-Microphone Input
-        ↓
-Wake Word Detection
+```
+User Voice Input
         ↓
 Speech Recognition
         ↓
-Intent Classifier (ML)
+Intent Classification (ML)
         ↓
- ┌─────────────────────────────┐
- │ Known Intent                │ → Execute Command
- └─────────────────────────────┘
+ ┌────────────────────────────┐
+ │ Known Intent               │ → Execute Command
+ └────────────────────────────┘
         ↓
- ┌─────────────────────────────┐
- │ Unknown Input               │ → Local AI (LLaMA3 via Ollama)
- └─────────────────────────────┘
+ ┌────────────────────────────┐
+ │ Unknown Query              │ → LLM (Ollama)
+ └────────────────────────────┘
         ↓
 Text-to-Speech Output
 ```
 
 ---
 
-## 🤖 Machine Learning Model
+## 🧠 Key Components
 
-* Algorithm: Multinomial Naive Bayes
-* Vectorization: Bag of Words (CountVectorizer)
+### 🎤 Speech Recognition
 
-### Pipeline:
+* Converts voice input into text using Google Speech API.
 
-1. Convert text → numerical vectors
-2. Train model on intents
-3. Predict user intent
-4. Execute command or call AI
+### 🗣 Text-to-Speech
 
----
+* Uses pyttsx3 for offline speech output.
 
-## 🤖 AI Integration (Offline)
+### 🧠 Intent Classifier
 
-* Model: LLaMA3
-* Runtime: Ollama
-* Works completely offline
+* Multinomial Naive Bayes model with Bag-of-Words.
+* Uses confidence threshold for unknown queries.
 
-### Advantages:
+### 🤖 AI Integration
 
-* No API cost
-* Faster response
-* Privacy-friendly
+* Local LLM (LLaMA3 via Ollama) for open-ended queries.
+* No API cost, works offline.
+
+### 🧩 Memory System
+
+* Stores user-specific data in JSON.
+* Enables personalized interaction.
+
+### 🖥 GUI System
+
+* Built using Tkinter.
+* Includes chat-style interface and status indicators.
+
+### ⚡ Multithreading
+
+* Prevents GUI freezing.
+* Uses threading + `root.after()` for safe updates.
+
+### 🔄 Command System
+
+* Dynamic command mapping using dictionary.
+* Scalable and maintainable design.
 
 ---
 
@@ -142,70 +130,81 @@ Text-to-Speech Output
 
 ### 1. Clone Repository
 
-git clone https://github.com/shubhitiwariiii/PERSONALIZED-VOICE-ASSISTANT.git
+```bash
+git clone https://github.com/shubhitiwariiii/personalized-voice-assistant
 cd personalized-voice-assistant
+```
 
 ### 2. Create Virtual Environment
 
+```bash
 python -m venv venv
 venv\Scripts\activate
+```
 
 ### 3. Install Dependencies
 
+```bash
 pip install -r requirements.txt
+```
 
 ### 4. Install Ollama
 
 Download from: https://ollama.com/download
 
 Run model:
+
+```bash
 ollama run llama3
+```
 
-### 5. Run Project
+### 5. Run GUI
 
-python main.py
+```bash
+python gui.py
+```
 
 ---
 
 ## 🎯 Example Commands
 
-* "Hey assistant"
 * "Open YouTube"
 * "Play music"
 * "What is artificial intelligence?"
-* "Exit"
+* "My name is Shubhi"
+* "What is my name?"
 
 ---
 
-## ⚡ Key Highlights
+## ⚠️ Challenges & Solutions
 
-* Event-driven wake word system
-* ML + AI hybrid architecture
-* Offline AI assistant using Ollama
-* Optimized speech pipeline
-* Clean modular code structure
+| Challenge         | Solution                   |
+| ----------------- | -------------------------- |
+| GUI freezing      | Used threading             |
+| Thread safety     | Used `root.after()`        |
+| API quota issue   | Switched to Ollama         |
+| Speech issues     | Reinitialized TTS engine   |
+| Wrong predictions | Added confidence threshold |
 
 ---
 
 ## 📚 Future Improvements
 
-* 🧠 Memory system (personalization)
-* 🌦 Weather API integration
-* 📱 GUI interface
-* 🔐 Face recognition login
-* 🔊 Offline speech recognition
+* 🎨 UI animations (mic effects, typing)
+* 🧠 Context-aware conversations
+* 🔊 Offline speech recognition (Vosk)
+* 📱 Web or mobile interface
 
 ---
 
 ## 👩‍💻 Author
 
 **Shubhi Tiwari**
-B.Tech Computer Science
-
 🔗 GitHub: https://github.com/shubhitiwariiii
 
 ---
 
 ## ⭐ Project Status
 
-🚀 Actively improving with advanced AI features
+✅ Completed 
+🚀 Open for improvements and scaling
